@@ -62,3 +62,34 @@ int obterValorAtributo(Carta c, int atributo) {
         printf("Empate!\n"); 
     }
 }
+
+int main() {
+    
+    Carta carta1 = {"Brasil", 8, 7, 6, 3};
+    Carta carta2 = {"Japão", 6, 4, 8, 5};
+
+    int atributo1, atributo2;
+
+    printf("Super Trunfo - Comparacao de Cartas!\n\n");
+
+    
+    printf("Escolha o primeiro atributo para comparar:\n");
+    exibirOpcoes(0);
+    scanf("%d", &atributo1);
+
+    
+    do {
+        printf("Escolha o segundo atributo para comparar:\n");
+        exibirOpcoes(atributo1);
+        scanf("%d", &atributo2);
+
+        if (atributo1 == atributo2) {
+            printf("Erro: Você escolheu o mesmo atributo duas vezes. Escolha outro atributo.\n");
+        }
+    } while (atributo1 == atributo2);
+
+
+    compararCartas(carta1, carta2, atributo1, atributo2);
+
+    return 0;
+}
