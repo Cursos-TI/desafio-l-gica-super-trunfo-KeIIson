@@ -33,4 +33,32 @@ int obterValorAtributo(Carta c, int atributo) {
         case 4: return c.densidade_demografica;
         default: return 0;
     }
+}void compararCartas(Carta c1, Carta c2, int atributo1, int atributo2) {
+    int valor1_attr1 = obterValorAtributo(c1, atributo1);
+    int valor2_attr1 = obterValorAtributo(c2, atributo1);
+    int valor1_attr2 = obterValorAtributo(c1, atributo2);
+    int valor2_attr2 = obterValorAtributo(c2, atributo2);
+
+    int pontos_c1 = 0, pontos_c2 = 0;
+
+    pontos_c1 += (atributo1 == 4) ? (valor1_attr1 < valor2_attr1) : (valor1_attr1 > valor2_attr1); 
+    pontos_c2 += (atributo1 == 4) ? (valor1_attr1 > valor2_attr1) : (valor1_attr1 < valor2_attr1); 
+
+    pontos_c1 += (atributo2 == 4) ? (valor1_attr2 < valor2_attr2) : (valor1_attr2 > valor2_attr2);
+    pontos_c2 += (atributo2 == 4) ? (valor1_attr2 > valor2_attr2) : (valor1_attr2 < valor2_attr2);
+
+    int soma_c1 = valor1_attr1 + valor1_attr2;
+    int soma_c2 = valor2_attr1 + valor2_attr2;
+
+    printf("\nComparacao:\n");
+    printf("%s - %d (Attr1) + %d (Attr2) = %d\n", c1.nome, valor1_attr1, valor1_attr2, soma_c1);
+    printf("%s - %d (Attr1) + %d (Attr2) = %d\n", c2.nome, valor2_attr1, valor2_attr2, soma_c2);
+
+    if (soma_c1 > soma_c2) {
+        printf("%s vence a rodada!\n", c1.nome);
+    } else if (soma_c1 < soma_c2) {
+        printf("%s vence a rodada!\n", c2.nome);
+    } else {
+        printf("Empate!\n"); 
+    }
 }
