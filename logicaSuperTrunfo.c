@@ -69,10 +69,7 @@ int main() {
     Carta carta2 = {"Japão", 6, 4, 8, 5};
 
     int atributo1, atributo2;
-
-    printf("Super Trunfo - Comparacao de Cartas!\n\n");
-
-    
+   
     printf("Escolha o primeiro atributo para comparar:\n");
     exibirOpcoes(0);
     scanf("%d", &atributo1);
